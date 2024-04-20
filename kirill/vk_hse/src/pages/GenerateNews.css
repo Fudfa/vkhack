@@ -1,0 +1,131 @@
+.g-news-container-1{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-left: 100px;
+}
+
+.g-news-top-bar{
+    margin-left: 10px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.g-news-navigation{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.g-news-navigation span{
+    /* background-color: rgba(0, 0, 0, 0.365); */
+    padding-inline: 10px;
+    padding-block: 5px;
+    border-radius: 20px;
+    margin-right: 10px;
+    color: rgb(137, 137, 137);
+    cursor: pointer;
+    
+}
+
+.g-news-textarea{
+    margin-left: 10px;
+    width: 800px;
+    height: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 800px;
+}
+
+.g-news-file-input{
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.g-news-title1{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.g-news-tags-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    flex-wrap: wrap;
+    width: 800px;
+}
+
+.g-news-tag{
+    background: rgb(48, 182, 48);
+    color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding-inline: 10px;
+    padding-block: 5px;
+}
+
+/* input file */
+
+.g-news-input-file {
+	position: relative;
+	display: inline-block;
+    margin-left: 10px;
+}
+.g-news-input-file-btn {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: rgb(0, 123, 255);
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.g-news-input-file-text {
+	padding: 0 10px;
+	line-height: 40px;
+	display: inline-block;
+}
+.g-news-input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Focus */
+.g-news-input-file input[type=file]:focus + .g-news-input-file-btn {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+ 
+/* Hover/active */
+.g-news-input-file:hover .g-news-input-file-btn {
+	background-color: rgb(54, 151, 255);
+}
+.g-news-input-file:active .g-news-input-file-btn {
+	background-color: rgb(2, 94, 192);
+}
+ 
+/* Disabled */
+.g-news-input-file input[type=file]:disabled + .g-news-input-file-btn {
+	background-color: #eee;
+}
+ 
