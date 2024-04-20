@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import './NavigationBar.css'
 import profileImg from '../images/icons/profile.svg';
@@ -20,6 +20,22 @@ const [navItems, setNavItems] = useState([
   {id: 4, name: 'Расписание', img: scheduleImg, to: '/main/schedule', active: false},
   {id: 5, name: 'Расписание', img: scheduleImg, to: '/main/schedule', active: false},
 ])
+
+useEffect(() => {
+  console.log('/main' + window.location.pathname)
+  let arr = navItems.map(navItem => {
+    if (window.location.pathname == navItem.to){
+      navItem.active = true
+      return navItem
+    }else{
+      navItem.active = false
+      return navItem
+    }
+  })
+
+  setNavItems(arr)
+
+}, [])
 
 function onClick(to, id){
 

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './GenerateNews.css'
 import $ from 'jquery'
-
-$('.g-news-input-file input[type=file]').on('change', function(){
-  let file = this.files[0];
-  $(this).closest('.g-news-input-file').find('.g-news-input-file-text').html(file.name);
-})
+import DropFileInput from '../components/DropFileInput';
 
 function GenerateNews() {
 
     const [navStatus, setNavStatus] = useState('text_loading')
+    const [processingStatus, setProcessingStatus] = useState('upload_file')
 
     const activeStyle = {
       backgroundColor: 'rgb(0, 123, 255)',
@@ -47,12 +44,14 @@ function GenerateNews() {
     ]
 
     function generateStyle(){
-        let colors = ["rgb(48, 182, 48)", "rgb(44, 139, 255)", "rgb(239, 43, 43)", "rgb(239, 43, 43)", "rgb(227, 58, 204)", "rgb(51, 71, 255)", "rgb(28, 213, 230)"]
+        let colors = ["rgb(0, 123, 255)", "#0047AB", "#4169E1", "#007FFF", "#2271B3"]
         const index = Math.floor(Math.random() * colors.length)
         const color = colors[index]
         console.log(color)
         return {background: color}
     }
+
+
 
 // input file
 
@@ -71,29 +70,26 @@ function GenerateNews() {
 
     
     { navStatus == 'text_loading' ? <textarea class='g-news-textarea'></textarea> : <></> }
-    { navStatus == 'file_loading' ? 
-      <form method="post" enctype="multipart/form-data">
-      <label class="g-news-input-file">
-            <input type="file" name="file"/>
-            <span class="g-news-input-file-btn">Выберите файл</span>           
-            <span class="g-news-input-file-text">Максимум 10мб</span>
-       </label>
-    </form>
-  : <></> }
+    { navStatus == 'file_loading' ? <DropFileInput className="g-news-input-file" onFileChange={() => {}}/> : <></> }
 
-    <span className='g-news-title1'>Распознанные теги: </span>
-    
-    <div className='g-news-tags-container'>
-    
-    {
-    tags.map(tag => (
-        <span className='g-news-tag' style={generateStyle()}>{'# ' + tag}</span>
-    ))
-    }
 
-    </div>
+    { processingStatus == 'upload_file' ? 
+        <button lassName='g-news-recognize-btn'>Распознать</button>
+        : <></> }
 
-  <script src="load_file.js"></script>
+  
+    { processingStatus == 'upload_fil' ? 
+        <>
+        <span className='g-news-title1'>Распознанные теги: </span>
+        <div className='g-news-tags-container'>
+        {
+        tags.map(tag => (
+            <span className='g-news-tag' style={generateStyle()}>{'# ' + tag}</span>
+        ))
+        }
+        </div>
+        </>
+        : <></> }
   </div>
   );
 }
