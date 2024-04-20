@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "vkhack-1",
+			"path": "../vkhack-1"
+		}
+	],
+	"settings": {}
+}
